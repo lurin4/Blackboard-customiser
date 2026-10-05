@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Blackboard Customizer",
+  "version": "0.1.0",
+  "description": "Customize Blackboard backgrounds and course images.",
+
+  "permissions": ["storage"],
+
+  "host_permissions": ["https://blackboard.le.ac.uk/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://blackboard.le.ac.uk/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}

@@ -1,0 +1,66 @@
+﻿* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 350px;
+  background: #fafaf9;
+  color: #242424;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+}
+.popup-container { padding: 20px; }
+header { padding-bottom: 18px; border-bottom: 1px solid #dededb; }
+h1 { margin: 0 0 4px; font-size: 17px; font-weight: 650; letter-spacing: -0.3px; }
+.header-label { color: #777; font-size: 12px; }
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e5e2;
+}
+h2 { margin: 0 0 2px; font-size: 13px; font-weight: 650; }
+.hint { float: right; color: #777; font-size: 10px; font-weight: 400; line-height: 18px; }
+label { font-size: 12px; }
+.setting-row { display: flex; align-items: center; justify-content: space-between; }
+output { float: right; color: #666; font-variant-numeric: tabular-nums; }
+input[type="color"] {
+  width: 44px;
+  height: 28px;
+  padding: 2px;
+  background: #fff;
+  border: 1px solid #d5d5d0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="range"] { width: 100%; margin: 0; accent-color: #59564e; }
+input[type="file"] { width: 100%; font: inherit; font-size: 11px; color: #666; }
+input[type="file"]::file-selector-button {
+  margin-right: 8px;
+  padding: 6px 9px;
+  border: 1px solid #d5d5d0;
+  border-radius: 5px;
+  background: #fff;
+  color: #333;
+  font: inherit;
+  cursor: pointer;
+}
+button {
+  padding: 9px 14px;
+  border: 1px solid #343434;
+  border-radius: 6px;
+  background: #343434;
+  color: #fff;
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+}
+button:hover { background: #4a4a4a; }
+button:focus-visible, input:focus-visible { outline: 2px solid #56748b; outline-offset: 3px; }
+button:disabled { opacity: 0.45; cursor: default; }
+.secondary-button { background: transparent; color: #555; border-color: #d5d5d0; }
+.secondary-button:hover { background: #eeeee9; }
+.text-button { align-self: flex-start; padding: 2px 0; border: none; background: transparent; color: #80504a; font-size: 11px; font-weight: 400; }
+.text-button:hover { background: transparent; text-decoration: underline; }
+footer { display: flex; gap: 8px; padding-top: 16px; }
+#saveBackground { flex: 1; }
+#status { min-height: 16px; margin: 10px 0 0; color: #666; font-size: 11px; }

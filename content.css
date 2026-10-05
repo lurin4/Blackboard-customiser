@@ -1,0 +1,488 @@
+/*
+    ============================================
+    BLACKBOARD CUSTOMIZER
+    ============================================
+*/
+
+:root {
+  --bb-font: "Segoe UI Variable", "Segoe UI", "Aptos", system-ui, sans-serif;
+}
+
+body,
+.course-list,
+.course-list button,
+.course-list input,
+.course-list .MuiTypography-root,
+.base-courses-container,
+.base-courses-container button,
+.base-courses-container input,
+.base-courses-container select,
+.base-courses-container .MuiTypography-root,
+.bb-custom-navigation-shell,
+.bb-custom-navigation-shell .MuiTypography-root {
+  font-family: var(--bb-font) !important;
+}
+
+/*
+    --------------------------------------------
+    GENERAL BLACKBOARD BACKGROUND
+    --------------------------------------------
+*/
+
+html,
+#site-wrap,
+.inner-wrap,
+#main-content,
+#main-content-inner,
+.bb-offcanvas-container {
+  background-color: transparent !important;
+}
+
+/*
+    Let the body wallpaper show through the left sidebar.
+*/
+
+.side-menu-container {
+  background: transparent !important;
+}
+
+/*
+    Ultra paints backgrounds on both the navigation list and its links,
+    including the Assist integration row. Use the stable ID and theme
+    class from the sidebar HTML instead of generated makeStyles classes.
+    Leave interaction backgrounds to Blackboard so navigation stays clear.
+*/
+
+#base_tools,
+#base_tools .themed-background-primary-alt-fill-only:not(.active):not(.Mui-selected):not([aria-current="page"]):not(:hover):not(:focus-visible):not(:focus-within) {
+  background: transparent !important;
+}
+
+.bb-custom-navigation-layer,
+.bb-custom-navigation-surface {
+  background: transparent !important;
+}
+
+.bb-custom-navigation-shell {
+  background: #ffffff !important;
+  color: #252525 !important;
+  border-right: 1px solid rgba(128, 96, 116, 0.12);
+  box-shadow: 6px 0 28px rgba(55, 35, 48, 0.06);
+}
+
+#base_tools {
+  padding: 8px !important;
+}
+
+#base_tools .base-navigation-button-content,
+#base_tools .integration-navigation-button-content {
+  border-radius: 12px !important;
+  margin: 3px 0 !important;
+  transition: background-color 160ms ease;
+}
+
+.bb-custom-navigation-shell .themed-background-primary-alt-fill-only {
+  background: transparent !important;
+}
+
+.bb-custom-navigation-shell a,
+.bb-custom-navigation-shell .MuiTypography-root,
+.bb-custom-navigation-shell .MuiListItemIcon-root,
+#base_tools .MuiTypography-root,
+#base_tools .MuiListItemIcon-root {
+  color: #252525 !important;
+}
+
+#base_tools .base-navigation-button-content.active,
+#base_tools .base-navigation-button-content:hover,
+#base_tools a:focus-visible {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/*
+    Make some Blackboard containers transparent
+    so the custom wallpaper can show through
+*/
+
+.base-courses-container,
+.route-view-container,
+.js-base-page-skip-link-target {
+  background-color: transparent !important;
+}
+
+/*
+    --------------------------------------------
+    COURSE CARDS
+    --------------------------------------------
+*/
+
+.course-columns .course-org-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: var(--bb-course-width, 820px) !important;
+  min-width: 0 !important;
+  flex: 0 1 var(--bb-course-width, 820px) !important;
+}
+
+/* Blackboard's float-clearing pseudo-elements must not become grid cells. */
+.course-columns .course-org-list::before,
+.course-columns .course-org-list::after {
+  display: none !important;
+}
+
+.course-org-list > .course-card-term-name {
+  grid-column: 1 / -1;
+  margin: 8px 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.course-card-term-name h3 {
+  font-family: var(--bb-font) !important;
+  font-size: 18px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.3px;
+  margin: 0 !important;
+}
+
+.course-org-list > .favorites-group,
+.course-org-list > .default-group {
+  min-width: 0 !important;
+  width: auto !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.course-org-list bb-base-course-card {
+  display: block;
+  height: 100%;
+}
+
+article.course-element-card {
+  position: relative !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: stretch !important;
+
+  gap: 14px !important;
+
+  box-sizing: border-box !important;
+
+  height: 100% !important;
+
+  min-height: 232px !important;
+
+  padding: 18px 18px 52px !important;
+
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  overflow: visible !important;
+
+  background: var(--bb-course-background, rgba(255, 255, 255, 0.85)) !important;
+  border: 1px solid rgba(130, 103, 119, 0.18) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 5px 20px rgba(59, 39, 52, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Keep Angular's hidden cards hidden despite the flex layout above. */
+article.course-element-card.ng-hide {
+  display: none !important;
+}
+
+article.course-element-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(59, 39, 52, 0.14);
+}
+
+article.course-element-card:focus-within {
+  outline: 2px solid #ad6286;
+  outline-offset: 3px;
+}
+
+/* Replace the old square colour bar with a small inset accent. */
+article.course-element-card.bar::before {
+  top: 20px !important;
+  bottom: auto !important;
+  left: 0 !important;
+  width: 4px !important;
+  height: 44px !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+
+article.course-element-card > .element-details.summary {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px;
+}
+
+article.course-element-card .summary > .course-title,
+article.course-element-card .summary > .status-bar {
+  width: 100% !important;
+  padding: 0 !important;
+  float: none !important;
+  max-width: none !important;
+}
+
+article.course-element-card .course-id {
+  font-size: 11px !important;
+  letter-spacing: 0.4px;
+  color: #7e6875 !important;
+  overflow-wrap: anywhere;
+}
+
+article.course-element-card .course-title h4 {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  margin: 3px 0 !important;
+  font-family: var(--bb-font) !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  font-weight: 650 !important;
+  color: #342b33 !important;
+}
+
+article.course-element-card .summary > .status-bar {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 12px;
+  margin-top: auto !important;
+}
+
+article.course-element-card .summary > .controls {
+  position: absolute !important;
+  right: 16px !important;
+  bottom: 14px !important;
+  top: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+
+article.course-element-card .course-banner {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 96px !important;
+  min-height: 0 !important;
+  flex: 0 0 96px !important;
+  border-radius: 12px;
+}
+
+article.course-element-card.bb-has-custom-image .course-banner {
+  display: none !important;
+}
+
+/*
+    Blackboard's original course-banner
+*/
+
+.course-banner {
+  background-size: cover !important;
+
+  background-position: center !important;
+
+  background-repeat: no-repeat !important;
+}
+
+/*
+    Our custom course image
+*/
+
+.bb-custom-course-image {
+  width: 100%;
+
+  min-width: 0;
+
+  height: 96px;
+
+  min-height: 96px;
+
+  background-size: contain;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  flex-shrink: 0;
+  border-radius: 12px;
+  background-color: rgba(247, 228, 239, 0.3);
+}
+
+/*
+    --------------------------------------------
+    EDIT BUTTON
+    --------------------------------------------
+*/
+
+.bb-course-edit-button {
+  position: absolute;
+
+  top: auto;
+
+  bottom: 14px;
+
+  left: 18px;
+
+  width: 30px;
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #333;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.bb-course-edit-button:hover {
+  transform: scale(1.08);
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.bb-course-image-menu {
+  position: absolute;
+  left: 14px;
+  bottom: 50px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  max-width: calc(100% - 28px);
+  padding: 5px;
+  background: #fff;
+  color: #252525;
+  border: 1px solid #dedade;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: var(--bb-font);
+}
+
+.bb-course-image-menu button {
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.bb-course-image-menu button:hover,
+.bb-course-image-menu button:focus-visible {
+  background: #f1eef1;
+}
+
+.bb-course-image-menu button:disabled {
+  color: #999;
+  cursor: default;
+}
+
+/*
+    --------------------------------------------
+    RIGHT-SIDE PANELS
+    --------------------------------------------
+*/
+
+/*
+    Some Blackboard versions use different
+    classes for the To Do area.
+
+    Let the body wallpaper show through these panels too.
+*/
+
+.todo-panel,
+aside {
+  background: transparent !important;
+}
+
+.course-overview-management .MuiOutlinedInput-root {
+  border-radius: 12px !important;
+  font-family: var(--bb-font) !important;
+}
+
+/* Translucent Courses header, scoped to the live page rather than previews. */
+.base-courses-header-container.color-selection-live-mode {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-bottom: 1px solid rgba(130, 103, 119, 0.15) !important;
+  box-shadow: 0 4px 18px rgba(59, 39, 52, 0.05);
+  font-family: var(--bb-font) !important;
+}
+
+.base-courses-header-container.color-selection-live-mode .page-title {
+  font-family: var(--bb-font) !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.7px;
+  color: #342b33 !important;
+}
+
+.base-courses-header-container.color-selection-live-mode .base-header-tools,
+.base-courses-header-container.color-selection-live-mode .base-header-tools-transclude {
+  background: transparent !important;
+}
+
+.base-courses-header-container.color-selection-live-mode .catalog-anchor-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  color: #594451 !important;
+  font-family: var(--bb-font) !important;
+}
+
+.base-courses-header-container.color-selection-live-mode .catalog-anchor-tag:hover,
+.base-courses-header-container.color-selection-live-mode .catalog-anchor-tag:focus-visible {
+  background: rgba(247, 228, 239, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  article.course-element-card,
+  .bb-course-edit-button {
+    transition: none !important;
+    transform: none !important;
+  }
+}
