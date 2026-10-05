@@ -16,7 +16,10 @@ const appearanceDefaults = {
 };
 
 const appearanceInputs = Object.fromEntries(
-  Object.keys(appearanceDefaults).map((key) => [key, document.getElementById(key)]),
+  Object.keys(appearanceDefaults).map((key) => [
+    key,
+    document.getElementById(key),
+  ]),
 );
 
 function updateAppearanceLabels() {
@@ -38,10 +41,12 @@ Object.values(appearanceInputs).forEach((input) => {
 });
 
 function readAppearanceInputs() {
-  return Object.fromEntries(Object.keys(appearanceDefaults).map((key) => [
-    key,
-    Number(appearanceInputs[key].value),
-  ]));
+  return Object.fromEntries(
+    Object.keys(appearanceDefaults).map((key) => [
+      key,
+      Number(appearanceInputs[key].value),
+    ]),
+  );
 }
 
 async function loadSettings() {

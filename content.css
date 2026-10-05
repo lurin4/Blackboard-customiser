@@ -54,7 +54,10 @@ html,
 */
 
 #base_tools,
-#base_tools .themed-background-primary-alt-fill-only:not(.active):not(.Mui-selected):not([aria-current="page"]):not(:hover):not(:focus-visible):not(:focus-within) {
+#base_tools
+  .themed-background-primary-alt-fill-only:not(.active):not(.Mui-selected):not(
+    [aria-current="page"]
+  ):not(:hover):not(:focus-visible):not(:focus-within) {
   background: transparent !important;
 }
 
@@ -118,7 +121,10 @@ html,
 
 .course-columns .course-org-list {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 260px), 1fr)
+  ) !important;
   gap: 18px !important;
   align-items: stretch !important;
   width: 100% !important;
@@ -192,7 +198,9 @@ article.course-element-card {
   border: 1px solid rgba(130, 103, 119, 0.18) !important;
   border-radius: 20px !important;
   box-shadow: 0 5px 20px rgba(59, 39, 52, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 /* Keep Angular's hidden cards hidden despite the flex layout above. */
@@ -460,7 +468,8 @@ aside {
 }
 
 .base-courses-header-container.color-selection-live-mode .base-header-tools,
-.base-courses-header-container.color-selection-live-mode .base-header-tools-transclude {
+.base-courses-header-container.color-selection-live-mode
+  .base-header-tools-transclude {
   background: transparent !important;
 }
 
@@ -474,8 +483,10 @@ aside {
   font-family: var(--bb-font) !important;
 }
 
-.base-courses-header-container.color-selection-live-mode .catalog-anchor-tag:hover,
-.base-courses-header-container.color-selection-live-mode .catalog-anchor-tag:focus-visible {
+.base-courses-header-container.color-selection-live-mode
+  .catalog-anchor-tag:hover,
+.base-courses-header-container.color-selection-live-mode
+  .catalog-anchor-tag:focus-visible {
   background: rgba(247, 228, 239, 0.85);
 }
 

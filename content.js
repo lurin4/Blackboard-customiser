@@ -22,8 +22,14 @@ async function applyTheme() {
       ? Math.min(max, Math.max(min, value))
       : fallback;
   const rootStyle = document.documentElement.style;
-  rootStyle.setProperty("--bb-course-width", `${boundedNumber(theme.courseWidth, 820, 500, 1200)}px`);
-  rootStyle.setProperty("--bb-course-background", `rgba(255,255,255,${boundedNumber(theme.courseOpacity, 85, 0, 100) / 100})`);
+  rootStyle.setProperty(
+    "--bb-course-width",
+    `${boundedNumber(theme.courseWidth, 820, 500, 1200)}px`,
+  );
+  rootStyle.setProperty(
+    "--bb-course-background",
+    `rgba(255,255,255,${boundedNumber(theme.courseOpacity, 85, 0, 100) / 100})`,
+  );
 
   /*
         We apply the wallpaper mainly to body.
@@ -137,7 +143,9 @@ async function removeCourseImage(courseId) {
     }
   }
   await chrome.storage.local.set({ courses });
-  findCourseRows().filter((row) => getCourseId(row) === courseId).forEach(clearCourseImage);
+  findCourseRows()
+    .filter((row) => getCourseId(row) === courseId)
+    .forEach(clearCourseImage);
 }
 
 let courseImageMenu;
@@ -200,8 +208,11 @@ function toggleCourseImageMenu(courseId, row, button) {
 }
 
 document.addEventListener("click", (event) => {
-  if (courseImageMenu && !courseImageMenu.panel.contains(event.target) &&
-      !courseImageMenu.button.contains(event.target)) {
+  if (
+    courseImageMenu &&
+    !courseImageMenu.panel.contains(event.target) &&
+    !courseImageMenu.button.contains(event.target)
+  ) {
     closeCourseImageMenu(false);
   }
 });
@@ -432,14 +443,22 @@ function customizeNavigation() {
   }
 
   const shell = outermost || navigation;
-  document.querySelectorAll(".bb-custom-navigation-shell").forEach((element) => {
-    if (element !== shell) {
-      element.classList.remove("bb-custom-navigation-shell");
-      for (const property of ["background", "background-size", "background-position", "background-repeat", "background-attachment"]) {
-        element.style.removeProperty(property);
+  document
+    .querySelectorAll(".bb-custom-navigation-shell")
+    .forEach((element) => {
+      if (element !== shell) {
+        element.classList.remove("bb-custom-navigation-shell");
+        for (const property of [
+          "background",
+          "background-size",
+          "background-position",
+          "background-repeat",
+          "background-attachment",
+        ]) {
+          element.style.removeProperty(property);
+        }
       }
-    }
-  });
+    });
   shell.classList.add("bb-custom-navigation-shell");
 
   // Keep the navbar opaque white, including the #base_tools fallback.
@@ -447,13 +466,17 @@ function customizeNavigation() {
 
   // Clear painted layers inside the shell, including logo/footer wrappers.
   // Images, badges and interactive highlights retain their own appearance.
-  shell.querySelectorAll("div, section, header, footer, ul, li").forEach((element) => {
-    if (!element.matches(".MuiBadge-root, .MuiBadge-badge, .MuiAvatar-root") &&
-        !element.closest(".MuiBadge-root, .MuiAvatar-root")) {
-      element.classList.add("bb-custom-navigation-surface");
-      element.style.setProperty("background", "transparent", "important");
-    }
-  });
+  shell
+    .querySelectorAll("div, section, header, footer, ul, li")
+    .forEach((element) => {
+      if (
+        !element.matches(".MuiBadge-root, .MuiBadge-badge, .MuiAvatar-root") &&
+        !element.closest(".MuiBadge-root, .MuiAvatar-root")
+      ) {
+        element.classList.add("bb-custom-navigation-surface");
+        element.style.setProperty("background", "transparent", "important");
+      }
+    });
 }
 
 window.addEventListener("resize", customizeNavigation);
