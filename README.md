@@ -1,12 +1,12 @@
 # Blackboard Customizer
 
-A browser extension that customises the appearance of the University of Leicester's Blackboard site. Add a wallpaper, choose your own course images, and browse courses in a responsive grid.
+A browser extension that customises the appearance of the University of Leicester's Blackboard site. Add a wallpaper, choose your own custom course images or gif's, and change the layout into an aesthetically pleasing grid.
 
 ## Features
 An example:
 <img width="1387" height="519" alt="image" src="https://github.com/user-attachments/assets/0af22063-54de-4764-ada3-e1ee03a22f58" />
 
-- Custom page background colour and image.
+- Custom page background colour or image.
 - Responsive course grid with adjustable width and card opacity.
 - Rounded course cards, softer shadows, and updated typography.
 - Custom images for individual courses, with an option to restore Blackboard's original image.
