@@ -3,6 +3,8 @@
 A browser extension that customises the appearance of the University of Leicester's Blackboard site. Add a wallpaper, choose your own course images, and browse courses in a responsive grid.
 
 ## Features
+An example:
+<img width="1387" height="519" alt="image" src="https://github.com/user-attachments/assets/0af22063-54de-4764-ada3-e1ee03a22f58" />
 
 - Custom page background colour and image.
 - Responsive course grid with adjustable width and card opacity.
